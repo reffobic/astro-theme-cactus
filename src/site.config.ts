@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
 		- The link value found in src/components/layout/Header.astro L:35
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
-	title: "Mohamed El-Refai - Computer Engineer & Developer",
+	title: "Mohamed El-Refai",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
 	url: "https://mohamedelrefai.dev",
 };
@@ -42,7 +42,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	},
 	{
 		path: "/projects/",
-		title: "Projects",
+		title: "My Work",
 	},
 	{
 		path: "/contact/",

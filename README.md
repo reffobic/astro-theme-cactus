@@ -22,13 +22,15 @@ This is my personal portfolio website showcasing my work as a Computer Engineeri
 - **AUC Events App**: Full-stack React/Python application
 - **Library AI Content Generator**: AI-powered bilingual content generation
 - **3D Library Visualization**: 3DHOP integration for library collections
+- **Graphic Design Work**: Creative designs and visual content
 
 ## Tech Stack
 
 - **Frontend**: Astro, React, Tailwind CSS
 - **Backend**: Python, FastAPI
 - **Hardware**: Verilog, FPGA development
-- **Tools**: Git, VS Code, Adobe Suite, Virtualization
+- **Design**: Adobe Suite, Graphic Design
+- **Tools**: Git, VS Code, Virtualization
 
 ## Development
 
