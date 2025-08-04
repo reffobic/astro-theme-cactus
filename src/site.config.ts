@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Used as the default description meta property and webmanifest description
-	description: "Mohamed El-Refai's personal portfolio website.",
+	description: "Computer Engineering student specializing in Cybersecurity. Software developer, IT professional, and tech enthusiast based in Cairo, Egypt.",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
 	lang: "en-US",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -25,9 +25,9 @@ export const siteConfig: SiteConfig = {
 		- The link value found in src/components/layout/Header.astro L:35
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
-	title: "Mohamed El-Refai",
+	title: "Mohamed El-Refai - Computer Engineer & Developer",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "https://example.com",
+	url: "https://mohamedelrefai.dev",
 };
 
 // Used to generate links in both the Header & Footer.
@@ -42,7 +42,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	},
 	{
 		path: "/projects/",
-		title: "My Work",
+		title: "Projects",
 	},
 	{
 		path: "/contact/",

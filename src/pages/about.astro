@@ -2,7 +2,7 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "About Mohamed El-Refai",
+	description: "About Mohamed El-Refai - Computer Engineering student specializing in Cybersecurity",
 	title: "About",
 };
 ---
@@ -10,55 +10,86 @@ const meta = {
 <PageLayout meta={meta}>
 	<h1 class="title mb-6">About Me</h1>
     <div class="prose prose-sm prose-cactus max-w-none">
-        <p>
-            I am a Computer Engineering student at The American University in Cairo (AUC) with a specialization in Cybersecurity. I am passionate about technology and have experience in software development, IT support, and business management.
+        <p class="mb-6">
+            I'm a Computer Engineering student at The American University in Cairo (AUC) with a specialization in Cybersecurity. 
+            I'm passionate about technology and have experience in software development, IT support, and business management.
         </p>
 
-        <h2 class="text-2xl font-semibold">Education</h2>
-        <ul>
-            <li>
+        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+        <div class="mb-8">
+            <div class="mb-4">
                 <strong>The American University in Cairo (AUC)</strong>, Cairo, Egypt
                 <br />
-                <em>Bachelor of Science in Computer Engineering with Cybersecurity specialization</em> - GPA: 3.1 (Sept. 2022 – Dec. 2026)
-            </li>
-            <li>
+                <em>Bachelor of Science in Computer Engineering with Cybersecurity specialization</em>
+                <br />
+                <span class="text-sm opacity-75">GPA: 3.1 • Sept. 2022 – Dec. 2026</span>
+            </div>
+            <div>
                 <strong>Egyptian Language School</strong>, Muscat, Oman
                 <br />
-                <em>International General Certificate of Secondary Education</em> - Grade with factor: 142% (Sept. 2019 – June 2022)
-            </li>
-        </ul>
+                <em>International General Certificate of Secondary Education</em>
+                <br />
+                <span class="text-sm opacity-75">Grade with factor: 142% • Sept. 2019 – June 2022</span>
+            </div>
+        </div>
 
-        <h2 class="text-2xl font-semibold">Work Experience</h2>
-        <ul>
-            <li>
-                <strong>Library Software Engineer Intern</strong>, The American University in Cairo (June 2025 - Present)
-                <p>Developing an AI software using Ollama and Helsinki-NLP to generate bilingual scripts from library collections. Building a full-stack solution with FastAPI for content generation and a React frontend, with batch processing.</p>
-            </li>
-            <li>
-                <strong>Digitization Intern – Work Study Program</strong>, The American University in Cairo (Jan. 2025 – May 2025)
-                <p>Developed a website integrating 3DHOP with a Python server and present 3D models for the AUC Library. Created a user-friendly guideline to help new users set up and operate the system for future use and training.</p>
-            </li>
-            <li>
-                <strong>Technology Infrastructure Intern</strong>, Omantel (Jan 2025 – Jan. 2025)
-                <p>Delivered front-line IT support resolving an average of 10 IT issues per day, improving resolution time by 5%. Gained proficiency in Omantel’s systems, Avaya, and myQ, conducting Windows and BIOS-level diagnostics.</p>
-            </li>
-            <li>
-                <strong>Business Startup Owner</strong>, BitsNBytes (Aug. 2019 – June 2022)
-                <p>Designed marketing content (ads, posters) using Adobe Photoshop and Illustrator for social media, managed website creation with paid hosting, and implemented automated inventory management using MS Excel. Built and customized high-performance PCs, selecting components, assembling systems while also managing procurement from UAE suppliers and providing after-sales support, including warranty handling.</p>
-            </li>
-        </ul>
+        <h2 class="text-2xl font-semibold mb-4">Experience</h2>
+        <div class="space-y-6 mb-8">
+            <div>
+                <h3 class="font-semibold">Library Software Engineer Intern</h3>
+                <p class="text-sm opacity-75 mb-2">The American University in Cairo • June 2025 - Present</p>
+                <p>Developing an AI software using Ollama and Helsinki-NLP to generate bilingual scripts from library collections. 
+                Building a full-stack solution with FastAPI for content generation and a React frontend, with batch processing.</p>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold">Digitization Intern – Work Study Program</h3>
+                <p class="text-sm opacity-75 mb-2">The American University in Cairo • Jan. 2025 – May 2025</p>
+                <p>Developed a website integrating 3DHOP with a Python server to present 3D models for the AUC Library. 
+                Created user-friendly guidelines to help new users set up and operate the system for future use and training.</p>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold">Technology Infrastructure Intern</h3>
+                <p class="text-sm opacity-75 mb-2">Omantel • Jan 2025</p>
+                <p>Delivered front-line IT support resolving an average of 10 IT issues per day, improving resolution time by 5%. 
+                Gained proficiency in Omantel's systems, Avaya, and myQ, conducting Windows and BIOS-level diagnostics.</p>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold">Business Startup Owner</h3>
+                <p class="text-sm opacity-75 mb-2">BitsNBytes • Aug. 2019 – June 2022</p>
+                <p>Designed marketing content using Adobe Suite for social media, managed website creation with paid hosting, 
+                and implemented automated inventory management using MS Excel. Built and customized high-performance PCs, 
+                selecting components and assembling systems while managing procurement from UAE suppliers.</p>
+            </div>
+        </div>
 
-        <h2 class="text-2xl font-semibold">Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Fluent in Arabic and English (IELTS 7.5 overall).</li>
-            <li><strong>Technical Skills:</strong> C++, Python, Verilog, QT, HTML/CSS, Git/GitHub, Virtualization (Kali Linux, Ubuntu), React.</li>
-            <li><strong>Software:</strong> Adobe Suite (Photoshop, Illustrator, Lightroom, Premiere Pro), Final Cut Pro, MS Office (Word, Excel, PowerPoint), Jira, VS Code, Visual Studio, Google Cloud Platform, Cursor, Anydesk, LTspice.</li>
-            <li><strong>Photography:</strong> Proficient in DSLR camera handling.</li>
-        </ul>
+        <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+                <h3 class="font-semibold mb-2">Programming Languages</h3>
+                <p class="text-sm">C++, Python, Verilog, HTML/CSS, JavaScript</p>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Tools & Technologies</h3>
+                <p class="text-sm">Git/GitHub, React, QT, Virtualization (Kali Linux, Ubuntu), VS Code, Visual Studio</p>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Software & Platforms</h3>
+                <p class="text-sm">Adobe Suite, MS Office, Jira, Google Cloud Platform, Cursor, Anydesk, LTspice</p>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Languages</h3>
+                <p class="text-sm">Fluent in Arabic and English (IELTS 7.5 overall)</p>
+            </div>
+        </div>
 
-        <h2 class="text-2xl font-semibold">Extracurricular Activities</h2>
-        <ul>
-            <li><strong>Marketing Content Creator & Designer</strong>, AUC Student Union, The American University in Cairo (Sept. 2022)</li>
-        </ul>
+        <h2 class="text-2xl font-semibold mb-4">Activities</h2>
+        <div class="mb-4">
+            <strong>Marketing Content Creator & Designer</strong>
+            <br />
+            <span class="text-sm opacity-75">AUC Student Union, The American University in Cairo • Sept. 2022 - Present</span>
+        </div>
     </div>
 </PageLayout>
