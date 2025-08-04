@@ -1,0 +1,182 @@
+---
+import ProjectsList from "./Projects.astro";
+import DesignProject from "./DesignProject.astro";
+import { projects } from "@/data/projects";
+import { designProjects } from "@/data/designs";
+
+// Sort projects by date (newest first)
+const sortedProjects = [...projects].sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+// Sort design projects by date (newest first)
+const sortedDesigns = [...designProjects].sort((a, b) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+// Get unique categories from design projects
+const designCategories = [...new Set(designProjects.map(project => project.category))];
+---
+
+<div class="space-y-8">
+  <!-- Tabs Navigation -->
+  <div class="border-b border-[color:var(--color-global-text)] border-opacity-10">
+    <nav class="-mb-px flex space-x-8" aria-label="Portfolio navigation">
+      <button
+        id="projects-tab"
+        data-tab="projects"
+        class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-[color:var(--color-global-text)] opacity-70 hover:opacity-100 hover:border-[color:var(--color-link)] transition-all duration-200 whitespace-nowrap"
+        aria-selected="true"
+      >
+        CS Projects
+      </button>
+      <button
+        id="design-tab"
+        data-tab="design"
+        class="tab-button border-b-2 border-transparent py-4 px-1 text-sm font-medium text-[color:var(--color-global-text)] opacity-70 hover:opacity-100 hover:border-[color:var(--color-link)] transition-all duration-200 whitespace-nowrap"
+        aria-selected="false"
+      >
+        Graphic Design
+      </button>
+    </nav>
+  </div>
+
+  <!-- Tab Panels -->
+  <div>
+    <!-- CS Projects Panel -->
+    <div id="projects-panel" class="tab-panel" data-tab="projects">
+      <ProjectsList projects={sortedProjects} />
+    </div>
+
+    <!-- Design Projects Panel -->
+    <div id="design-panel" class="tab-panel hidden" data-tab="design">
+      <!-- Category Filter -->
+      <div class="mb-8 flex flex-wrap gap-2">
+        <button 
+          class="category-filter px-3 py-1 rounded-full text-sm border border-[color:var(--color-global-text)] border-opacity-20 hover:border-opacity-50 transition-all"
+          data-category="all"
+        >
+          All
+        </button>
+        {designCategories.map(category => (
+          <button 
+            class="category-filter px-3 py-1 rounded-full text-sm border border-[color:var(--color-global-text)] border-opacity-20 hover:border-opacity-50 transition-all"
+            data-category={category.toLowerCase().replace(/\s+/g, '-')}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Design Projects Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedDesigns.map(project => {
+          const categoryClass = project.category.toLowerCase().replace(/\s+/g, '-');
+          return (
+            <div class={`design-item ${categoryClass}`}>
+              <DesignProject project={project} />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Active tab styles */
+  .tab-button[aria-selected="true"] {
+    border-color: var(--color-link);
+    color: var(--color-link);
+    opacity: 1;
+  }
+  
+  /* Active category filter */
+  .category-filter.active {
+    background-color: var(--color-link);
+    color: white;
+    border-color: var(--color-link) !important;
+  }
+  
+  /* Smooth transitions */
+  .tab-panel {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Design project hover effect */
+  .design-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .design-item.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Tab switching functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-button');
+    const panels = document.querySelectorAll('.tab-panel');
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const designItems = document.querySelectorAll('.design-item');
+    
+    // Tab switching
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update tab selection
+        tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+        
+        // Show the selected panel
+        const target = tab.getAttribute('data-tab');
+        panels.forEach(panel => {
+          if (panel.getAttribute('data-tab') === target) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+        
+        // Update URL hash
+        history.pushState(null, '', `#${target}`);
+      });
+    });
+    
+    // Category filtering for design projects
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        const category = filter.getAttribute('data-category');
+        
+        // Update active filter
+        categoryFilters.forEach(f => f.classList.remove('active'));
+        filter.classList.add('active');
+        
+        // Filter design items
+        designItems.forEach(item => {
+          if (category === 'all' || item.classList.contains(category)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+    
+    // Check URL hash on page load
+    const hash = window.location.hash.substring(1);
+    if (hash === 'design') {
+      document.getElementById('design-tab').click();
+    } else if (hash === 'projects') {
+      document.getElementById('projects-tab').click();
+    }
+    
+    // Set 'All' as default active filter
+    document.querySelector('.category-filter[data-category="all"]')?.classList.add('active');
+  });
+</script>

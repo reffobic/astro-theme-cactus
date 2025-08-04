@@ -7,6 +7,18 @@ export default {
 			typography: () => ({
 				DEFAULT: {
 					css: {
+						fontSize: '1.125rem', // 18px base font size
+						lineHeight: '1.7',
+						p: {
+							fontSize: '1.125rem',
+							lineHeight: '1.7',
+							marginTop: '1.25em',
+							marginBottom: '1.25em',
+						},
+						li: {
+							fontSize: '1.125rem',
+							lineHeight: '1.7',
+						},
 						a: {
 							textUnderlineOffset: "2px",
 							"&:hover": {
@@ -81,6 +93,16 @@ export default {
 				},
 				sm: {
 					css: {
+						fontSize: '1rem', // 16px for sm variant
+						lineHeight: '1.6',
+						p: {
+							fontSize: '1rem',
+							lineHeight: '1.6',
+						},
+						li: {
+							fontSize: '1rem',
+							lineHeight: '1.6',
+						},
 						code: {
 							fontSize: "var(--text-sm)",
 							fontWeight: "400",
