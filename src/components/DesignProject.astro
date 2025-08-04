@@ -35,7 +35,7 @@ const thumbnail = project.images.find(img => img.thumbnail) || project.images[0]
     <dialog id={`modal-${projectId}`} class="modal">
       <div class="modal-box max-w-6xl p-0 overflow-hidden">
         <form method="dialog" class="absolute right-4 top-4 z-10">
-          <button class="w-8 h-8 rounded-full bg-[color:var(--color-global-text)] bg-opacity-20 hover:bg-opacity-30 text-[color:var(--color-global-text)] flex items-center justify-center transition-all" aria-label="Close">✕</button>
+          <button class="w-8 h-8 rounded-full bg-[color:var(--color-global-text)] bg-opacity-20 hover:bg-opacity-30 text-white flex items-center justify-center transition-all" aria-label="Close">✕</button>
         </form>
         
         <div class="flex flex-col md:flex-row h-full">
@@ -94,7 +94,7 @@ const thumbnail = project.images.find(img => img.thumbnail) || project.images[0]
       </div>
       
       <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+        <button class="w-full h-full bg-transparent" aria-label="Close modal">close</button>
       </form>
     </dialog>
     
@@ -116,6 +116,14 @@ const thumbnail = project.images.find(img => img.thumbnail) || project.images[0]
         if (modalBox) {
           modalBox.addEventListener('click', (e) => {
             e.stopPropagation();
+          });
+        }
+        
+        // Also handle the backdrop form button
+        const backdropButton = modal.querySelector('.modal-backdrop button');
+        if (backdropButton) {
+          backdropButton.addEventListener('click', () => {
+            modal.close();
           });
         }
       });
